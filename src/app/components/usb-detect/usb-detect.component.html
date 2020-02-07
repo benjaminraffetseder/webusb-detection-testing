@@ -1,0 +1,25 @@
+<div *ngIf="printerIsConnected === true, else printerNotConnected">
+   Printer is connected
+ </div>
+ <ng-template #printerNotConnected>
+   Printer not connected
+ </ng-template>
+ <div *ngIf="cashDeskIsConnected === true, else cashDeskNotConnected">
+   Cashdesk is connected
+ </div>
+
+ <ng-template #cashDeskNotConnected>
+   Cashdesk not connected
+ </ng-template>
+<br>
+<hr>
+
+<div *ngIf="printerIsConnected === false || cashDeskIsConnected === false">
+    <a (click)="addNewDevice()">
+        Add 
+        <span *ngIf="printerIsConnected === true, else cashDeskConnected">cashdesk</span>
+         <ng-template #cashDeskConnected>
+           printer
+         </ng-template>
+    </a>
+</div>
